@@ -1,0 +1,6 @@
+{
+  "name": "Wlan ai toolbox",
+  "description": "Advanced WiFi diagnostic tools, RF and WLAN calculators, field references, interactive nema decoders, and network utility tools powered by AI analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
