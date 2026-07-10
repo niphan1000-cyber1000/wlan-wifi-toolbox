@@ -1,4 +1,4 @@
-package com.example.ui.screens
+package com.aistudio.wlanaitoolbox.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -22,8 +22,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.graphics.Color
-import com.example.ui.theme.*
-import com.example.util.NetworkUtils
+import com.aistudio.wlanaitoolbox.ui.theme.*
+import com.aistudio.wlanaitoolbox.util.NetworkUtils
 import java.util.Locale
 
 @Composable

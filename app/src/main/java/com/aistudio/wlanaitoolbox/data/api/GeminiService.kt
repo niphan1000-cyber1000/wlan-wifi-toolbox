@@ -1,7 +1,7 @@
-package com.example.data.api
+package com.aistudio.wlanaitoolbox.data.api
 
 import android.util.Log
-import com.example.BuildConfig
+import com.aistudio.wlanaitoolbox.BuildConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaType

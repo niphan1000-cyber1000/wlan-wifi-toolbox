@@ -1,4 +1,4 @@
-package com.example.util
+package com.aistudio.wlanaitoolbox.util
 
 import kotlin.math.log10
 import kotlin.math.pow
@@ -111,14 +111,23 @@ object NetworkUtils {
             val networkInt = ipInt and maskInt
             val broadcastInt = networkInt or (maskInt.inv() and 0xFFFFFFFFL)
 
-            val usableHosts = if (cidr >= 31) {
-                0L
-            } else {
-                (2.0.pow(32 - cidr).toLong()) - 2
+            val usableHosts = when (cidr) {
+                32 -> 1L
+                31 -> 2L
+                else -> (2.0.pow(32 - cidr).toLong()) - 2
             }
 
-            val firstUsableInt = if (cidr >= 31) networkInt else networkInt + 1
-            val lastUsableInt = if (cidr >= 31) broadcastInt else broadcastInt - 1
+            val firstUsableInt = when (cidr) {
+                32 -> networkInt
+                31 -> networkInt
+                else -> networkInt + 1
+            }
+
+            val lastUsableInt = when (cidr) {
+                32 -> networkInt
+                31 -> broadcastInt
+                else -> broadcastInt - 1
+            }
 
             fun intToIp(ip: Long): String {
                 return "${(ip shr 24) and 0xFF}.${(ip shr 16) and 0xFF}.${(ip shr 8) and 0xFF}.${ip and 0xFF}"

@@ -1,9 +1,9 @@
-package com.example
+package com.aistudio.wlanaitoolbox
 
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
-import com.example.ui.screens.DiagnosticsScreen
-import com.example.ui.theme.MyApplicationTheme
+import com.aistudio.wlanaitoolbox.ui.screens.DiagnosticsScreen
+import com.aistudio.wlanaitoolbox.ui.theme.MyApplicationTheme
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
 import org.junit.Rule

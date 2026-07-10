@@ -1,4 +1,4 @@
-package com.example.ui.screens
+package com.aistudio.wlanaitoolbox.ui.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Canvas
@@ -26,7 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.ui.theme.*
+import com.aistudio.wlanaitoolbox.ui.theme.*
 
 @Composable
 fun LearningScreen() {

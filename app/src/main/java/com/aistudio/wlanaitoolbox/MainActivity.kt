@@ -1,4 +1,4 @@
-package com.example
+package com.aistudio.wlanaitoolbox
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -25,17 +25,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
-import com.example.ui.screens.CalculatorsScreen
-import com.example.ui.screens.DiagnosticsScreen
-import com.example.ui.screens.FieldRefScreen
-import com.example.ui.screens.LearningScreen
-import com.example.ui.screens.UtilitiesScreen
-import com.example.ui.theme.BottomNavBg
-import com.example.ui.theme.CyberCyan
-import com.example.ui.theme.MyApplicationTheme
-import com.example.ui.theme.SlateSurface
-import com.example.ui.theme.TextMuted
-import com.example.ui.theme.TextWhite
+import com.aistudio.wlanaitoolbox.ui.screens.CalculatorsScreen
+import com.aistudio.wlanaitoolbox.ui.screens.DiagnosticsScreen
+import com.aistudio.wlanaitoolbox.ui.screens.FieldRefScreen
+import com.aistudio.wlanaitoolbox.ui.screens.LearningScreen
+import com.aistudio.wlanaitoolbox.ui.screens.UtilitiesScreen
+import com.aistudio.wlanaitoolbox.ui.theme.BottomNavBg
+import com.aistudio.wlanaitoolbox.ui.theme.CyberCyan
+import com.aistudio.wlanaitoolbox.ui.theme.MyApplicationTheme
+import com.aistudio.wlanaitoolbox.ui.theme.SlateSurface
+import com.aistudio.wlanaitoolbox.ui.theme.TextMuted
+import com.aistudio.wlanaitoolbox.ui.theme.TextWhite
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {

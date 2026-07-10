@@ -1,4 +1,4 @@
-package com.example.ui.screens
+package com.aistudio.wlanaitoolbox.ui.screens
 
 import android.Manifest
 import android.content.Context
@@ -42,8 +42,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
-import com.example.data.api.GeminiService
-import com.example.ui.theme.*
+import com.aistudio.wlanaitoolbox.data.api.GeminiService
+import com.aistudio.wlanaitoolbox.ui.theme.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -126,13 +126,8 @@ fun DiagnosticsScreen() {
             val capabilities = connManager.getNetworkCapabilities(activeNetwork)
             
             if (capabilities != null && capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
-                val wifiInfo: WifiInfo? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    @Suppress("DEPRECATION")
-                    wifiManager.connectionInfo
-                } else {
-                    @Suppress("DEPRECATION")
-                    wifiManager.connectionInfo
-                }
+                @Suppress("DEPRECATION")
+                val wifiInfo: WifiInfo? = wifiManager.connectionInfo
 
                 if (wifiInfo != null) {
                     isSimulating = false
@@ -531,18 +526,22 @@ fun DiagnosticsScreen() {
                                 
                                 for (i in 1..4) {
                                     testResultText = "Pinging Google DNS [$i/4]..."
+                                    var rtt = 0L
                                     val isReachable = withContext(Dispatchers.IO) {
                                         try {
+                                            val startTime = System.currentTimeMillis()
                                             val address = InetAddress.getByName(host)
-                                            address.isReachable(1000)
+                                            val reachable = address.isReachable(1000)
+                                            val endTime = System.currentTimeMillis()
+                                            rtt = endTime - startTime
+                                            reachable
                                         } catch (e: Exception) {
                                             false
                                         }
                                     }
-                                    val rtt = Random.nextInt(12, 45) // simulated delay
-                                    if (isReachable || rtt > 0) {
+                                    if (isReachable) {
                                         successCount++
-                                        pingMsList.add(rtt)
+                                        pingMsList.add(rtt.toInt())
                                     }
                                     delay(500)
                                 }

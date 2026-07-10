@@ -10,11 +10,11 @@ plugins {
 }
 
 android {
-  namespace = "com.example"
-  compileSdk { version = release(36) { minorApiLevel = 1 } }
+  namespace = "com.aistudio.wlanaitoolbox"
+  compileSdk = 36
 
   defaultConfig {
-    applicationId = "com.aistudio.wlanaitoolbox.wfydpz"
+    applicationId = "com.aistudio.wlanaitoolbox"
     minSdk = 24
     targetSdk = 36
     versionCode = 1
@@ -32,10 +32,13 @@ android {
       keyPassword = System.getenv("KEY_PASSWORD")
     }
     create("debugConfig") {
-      storeFile = file("${rootDir}/debug.keystore")
-      storePassword = "android"
-      keyAlias = "androiddebugkey"
-      keyPassword = "android"
+      val keystore = file("${rootDir}/debug.keystore")
+      if (keystore.exists()) {
+        storeFile = keystore
+        storePassword = "android"
+        keyAlias = "androiddebugkey"
+        keyPassword = "android"
+      }
     }
   }
 
@@ -47,7 +50,10 @@ android {
       signingConfig = signingConfigs.getByName("release")
     }
     debug {
-      signingConfig = signingConfigs.getByName("debugConfig")
+      val keystore = file("${rootDir}/debug.keystore")
+      if (keystore.exists()) {
+        signingConfig = signingConfigs.getByName("debugConfig")
+      }
     }
   }
   compileOptions {
